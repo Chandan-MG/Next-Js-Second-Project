@@ -6,6 +6,7 @@ async function handler(req, res){
 
         // const {title, image, address, description} = data;
 
+    
         const client = await MongoClient.connect('mongodb://localhost:27017/meetupsdb');
         const db = client.db;
 

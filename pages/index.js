@@ -1,6 +1,7 @@
 import MeetupList from "../components/meetups/MeetupList";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import {MongoClient} from 'mongodb';
+import Head from 'next/head';
 
 const DUMMY_ITEM = [
     {
@@ -32,7 +33,13 @@ function HomePage(){
         setLoadedMeetups(DUMMY_ITEM);
     },[])
     return(
-        <MeetupList meetups={loadedMeetups} />
+        <Fragment>
+            <Head>
+                <title>React meetup</title>
+                <meta  name="description" content="Find your next tech meetup in this React app."/>
+            </Head>
+            <MeetupList meetups={loadedMeetups} />
+        </Fragment>
     )
 }
 
